@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="assets/css/font-awesome.css" />
     <!-- endbuild -->
@@ -79,6 +80,8 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
     <!-- ace settings handler -->
     <script src="assets/js/ace-extra.min.js"></script>
@@ -90,8 +93,10 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <!--filter-->
+        <script src="scripts/filters/orderStatus.js"></script>
         <!--filter-->
         <!--services-->
+        <script src="scripts/service/order/order.js"></script>
         <!--services-->
         <!--constant-->
         <!--constant-->
@@ -107,8 +112,8 @@
         <!--thirdLib-->
         <!--thirdLib-->
         <!--controllers-->
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/order/grabOrderCtr.js"></script>
+        <script src="scripts/controllers/order/grabOrderSuccessCtr.js"></script>
         <!--controllers-->
 
         <!-- endbuild -->

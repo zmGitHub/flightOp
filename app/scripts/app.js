@@ -38,10 +38,22 @@ angular
     });
     $stateProvider.state('grab.order', {
       url: '/order',
-      templateUrl: 'views/grabOrder/grabOrder.html'
+      templateUrl: 'views/grabOrder/grabOrder.html',
+      resolve: {
+        orderList: function(Order){
+          return Order.getAllOrder();
+        }
+      },
+      controller: 'grabOrderCtr'
     });
     $stateProvider.state('grab.success', {
       url: '/success',
-      templateUrl: 'views/grabOrder/success.html'
+      templateUrl: '../views/grabOrder/grabOrderSuccess.html',
+      resolve: {
+        orderSuccessList: function(Order){
+          return Order.grabSuccessOrder();
+        }
+      },
+      controller: 'grabOrderSuccessCtr'
     });
   });

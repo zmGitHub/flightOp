@@ -1,0 +1,62 @@
+<div class="page-header">
+  <h1>
+    订单
+    <small>
+      <i class="icon-double-angle-right"></i>
+      待支付订单
+    </small>
+  </h1>
+</div>
+<div class="row">
+  <div class="col-xs-12 widget-container-span ui-sortable">
+    <div class="widget-box">
+      <div class="widget-header">
+        <h5>待支付订单列表</h5>
+
+        <div class="widget-toolbar">
+          <a href="#" data-action="settings">
+            <i class="icon-cog"></i>
+          </a>
+
+          <a ng-click="reload()" href>
+            <i class="icon-refresh"></i>
+          </a>
+
+          <a href="#" data-action="collapse">
+            <i class="icon-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="widget-body">
+        <div class="widget-body-inner">
+          <div class="widget-main no-padding">
+            <div class="tab-content">
+              <div class="panel-group accordion-style1 accordion-style2">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <a ng-click="vm.collapsed = !vm.collapsed" ng-class="{collapsed: !vm.collapsed}" class="accordion-toggle" href>
+                      <i class="pull-right" ng-class="{true: 'icon-chevron-right', false: 'icon-chevron-down'}[!vm.collapsed]"></i>
+
+                      <i class="icon-user bigger-130"></i>
+                      &nbsp; High life accusamus terry richardson ad squid?
+                    </a>
+                  </div>
+
+                  <div class="panel-collapse collapse" ng-class="{in: vm.collapsed}">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="vm.showOverlay" class="widget-box-overlay td-center">
+        <i class="icon-spinner overflow-icon-middle icon-spin icon-3x white"></i>
+      </div>
+    </div>
+  </div>
+</div>

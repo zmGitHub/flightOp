@@ -8,12 +8,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../73goV03/Application/Home/Controller/OrderSnatchController.class.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../AdminTemplate/faq.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../AdminTemplate/index.html">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../TAE/app/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
           <value>
             <set />
           </value>
@@ -29,6 +44,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/scripts/app.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/controllers/order/grabOrderCtr.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/controllers/order/grabOrderSuccessCtr.js">
           <value>
             <set />
           </value>
@@ -58,6 +83,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/filters/orderStatus.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/service/order/order.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/styles/main.css">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/views/404.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/views/dashboard/dashboard.html">
           <value>
             <set />
@@ -69,6 +114,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/views/grabOrder/grabOrder.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/views/grabOrder/grabOrderSuccess.html">
           <value>
             <set />
           </value>
@@ -108,12 +158,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/bower_components/toastr/toastr.css">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../myApp/.gitignore">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../myApp/www/js/controllers.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../myApp/www/js/directive/theTimer.js">
           <value>
             <set />
           </value>
