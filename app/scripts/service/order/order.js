@@ -36,7 +36,7 @@ angular.module('flightOpApp').factory('Order',['$http', '$q', function($http, $q
   };
 
   /**
-   *
+   * 抢单功能
    * @param oid 订单ｉｄ
    * @returns {*}　成功返回１　失败返回　0
    */
@@ -61,6 +61,10 @@ angular.module('flightOpApp').factory('Order',['$http', '$q', function($http, $q
       });
     return defer.promise;
   };
+
+  /*
+  *返回抢单成功，待支付的页面
+   */
   orderService.grabSuccessOrder = function(){
     makeUrl('ticketpaying');
     var defer = $q.defer();
@@ -83,3 +87,31 @@ angular.module('flightOpApp').factory('Order',['$http', '$q', function($http, $q
   };
   return orderService;
 }]);
+
+
+/**
+ * 出票功能
+ * @param oid 订单ｉｄ
+ * @returns {*}　成功返回１　失败返回　0
+ */
+orderService.ticketPrinted = function(oid){
+  makeUrl('ticketprinting');
+  var defer = $q.defer();
+  var orderInfo = {
+    op_id: 1,
+    tmc_id: 1,
+    order_num: oid
+  };
+  $http.post(
+      _finalUrl,
+      orderInfo,
+      {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+      }).success(function (data) {
+        defer.resolve(data);
+      }).error(function (data, status) {
+        defer.reject(status);
+      });
+  return defer.promise;
+};
