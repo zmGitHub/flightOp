@@ -3,7 +3,7 @@
     订单
     <small>
       <i class="icon-double-angle-right"></i>
-      待支付订单
+      新订单
     </small>
   </h1>
 </div>
@@ -11,7 +11,7 @@
   <div class="col-xs-12 widget-container-span ui-sortable">
     <div class="widget-box">
       <div class="widget-header">
-        <h5>待支付订单列表</h5>
+        <h5>最新订单列表</h5>
 
         <div class="widget-toolbar">
           <a href="#" data-action="settings">
@@ -30,22 +30,103 @@
 
       <div class="widget-body">
         <div class="widget-body-inner">
-          <div class="widget-main no-padding">
-            <div class="tab-content">
-              <div class="panel-group accordion-style1 accordion-style2">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <a ng-click="vm.collapsed = !vm.collapsed" ng-class="{collapsed: !vm.collapsed}" class="accordion-toggle" href>
-                      <i class="pull-right" ng-class="{true: 'icon-chevron-right', false: 'icon-chevron-down'}[!vm.collapsed]"></i>
-
-                      <i class="icon-user bigger-130"></i>
-                      &nbsp; High life accusamus terry richardson ad squid?
-                    </a>
+          <div class="widget-main">
+            <div class="table-responsive">
+              <div class="dataTables_wrapper" role="grid">
+                <div class="row no-padding-top no-padding-bottom">
+                  <div class="col-sm-6 col-lg-6">
+                    <div class="dataTables_length">
+                      <label>每页 <select>
+                        <option value="10" selected="selected">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select> 条数据</label>
+                    </div>
                   </div>
+                  <div class="col-sm-6 col-lg-6">
+                    <div class="dataTables_filter">
+                      <label>搜索:
+                        <input type="text" placeholder="请输入关键字">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th class="sorting_asc center">创建时间</th>
+                    <th class="center">订单编号</th>
+                    <th class="center">行程类型</th>
+                    <th class="center">去程航班信息</th>
+                    <th class="center">去程票面价格</th>
+                    <th class="center">去程实际价格</th>
+                    <th class="center">返程航班信息</th>
+                    <th class="center">返程票面价格</th>
+                    <th class="center">返程实际价格</th>
+                    <th class="center">机票张数</th>
+                    <th class="center">总金额</th>
+                    <th class="center">订单状态</th>
+                    <th class="center">操 作</th>
+                  </tr>
+                  </thead>
 
-                  <div class="panel-collapse collapse" ng-class="{in: vm.collapsed}">
-                    <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <tbody>
+                  <tr ng-repeat="order in vm.orderList | filter: {ticket_status: 0} | orderBy:'-create_time'">
+                    <td class="td-center">
+                      <a href="#">{{order.create_time | date:'HH:mm'}}</a>
+                    </td>
+                    <td class="td-center">
+                      {{order.order_num}}
+                    </td>
+                    <td class="td-center">
+                      {{order.trip_type | tripType}}
+                    </td>
+                    <td class="td-center">
+                      <p>{{order.dpt_dtime | date: 'yyyy-mm-dd hh:mm'}}</p>
+                      <p>航班：{{order.dpt_flight_num}}</p>
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.dpt_origin_price}}
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.dpt_flight_price}}
+                    </td>
+                    <td class="td-center">
+                      <p>{{order.rtn_dtime | date: 'yyyy-mm-dd hh:mm'}}</p>
+                      <p>航班：{{order.rtn_flight_num}}</p>
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.rtn_origin_price}}
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.rtn_flight_price}}
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.trip_type}} x {{order.passenger_amount}} 人
+                    </td>
+                    <td class="td-center">
+                      <strong>￥{{order.total_price}}</strong>
+                    </td>
+                    <td class="hidden-480 td-center">
+                      <span class="label label-sm label-success arrowed arrowed-right">{{order.ticket_status | ticketStatus}}</span>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <div class="row no-padding-top no-padding-bottom no-top-border no-bottom-border">
+                  <div class="col-sm-6">
+                    <div class="dataTables_info" id="sample-table-2_info">显示 1 到 10 总共 23条数据</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="dataTables_paginate paging_bootstrap">
+                      <ul class="pagination">
+                        <li class="prev disabled"><a href="#"><i class="icon-double-angle-left"></i></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="next"><a href="#"><i class="icon-double-angle-right"></i></a></li>
+                      </ul>
                     </div>
                   </div>
                 </div>
