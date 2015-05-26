@@ -72,7 +72,7 @@
                   </thead>
 
                   <tbody>
-                  <tr ng-repeat="order in vm.orderList | filter: {ticket_status: 0} | orderBy:'-create_time'">
+                  <tr ng-repeat="order in vm.orderSuccessList | filter: {ticket_status: 0} ：{snatch_status:1} | orderBy:'-create_time'">
                     <td class="td-center">
                       <a href="#">{{order.create_time | date:'HH:mm'}}</a>
                     </td>

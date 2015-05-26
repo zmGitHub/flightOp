@@ -90,17 +90,67 @@ angular.module('flightOpApp').factory('Order',['$http', '$q', function($http, $q
 
 
 /**
+ *
+ * @returns {*} 返回所有已支付未出票的数据
+ */
+orderService.ticketprint = function(){
+  makeUrl('ticketprint');
+  var defer = $q.defer();
+  $http.post(
+      _finalUrl,
+      {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+      }).success(function (data) {
+        if(data){
+          defer.resolve(data);
+        }
+      }).error(function (data, status) {
+        defer.reject(status);
+      });
+  return defer.promise;
+};
+
+
+/**
  * 出票功能
  * @param oid 订单ｉｄ
  * @returns {*}　成功返回１　失败返回　0
  */
-orderService.ticketPrinted = function(oid){
+orderService.ticketPrinting = function(oid){
   makeUrl('ticketprinting');
   var defer = $q.defer();
   var orderInfo = {
     op_id: 1,
     tmc_id: 1,
     order_num: oid
+  };
+  $http.post(
+      _finalUrl,
+      orderInfo,
+      {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+      }).success(function (data) {
+        defer.resolve(data);
+      }).error(function (data, status) {
+        defer.reject(status);
+      });
+  return defer.promise;
+};
+
+
+/**
+ * 已出票展示功能
+ * @param oid 订单ｉｄ
+ * @returns {*}　成功返回１　失败返回　0
+ */
+orderService.ticketPrinted = function(){
+  makeUrl('ticketPrinted');
+  var defer = $q.defer();
+  var orderInfo = {
+    op_id: 1,
+    tmc_id: 1
   };
   $http.post(
       _finalUrl,

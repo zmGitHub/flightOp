@@ -3,7 +3,7 @@
         订单
         <small>
             <i class="icon-double-angle-right"></i>
-            新订单
+            待出票订单
         </small>
     </h1>
 </div>
@@ -73,7 +73,7 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr ng-repeat="order in vm.orderList | filter: {ticket_status: 0} | orderBy:'-create_time'">
+                                    <tr ng-repeat="order in vm.orderPaySuccessList | filter: {ticket_status: 1} ：{snatch_status:1} | orderBy:'-create_time'">
                                         <td class="td-center">
                                             <a href="#">{{order.create_time | date:'HH:mm'}}</a>
                                         </td>
