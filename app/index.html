@@ -27,36 +27,8 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <!-- Add your site or application content here -->
-    <!-- 顶端导航条 -->
-    <app-header></app-header>
-    <!-- 顶端导航条 -->
-    <!--内容区块-->
-    <div class="main-container" id="main-container">
-      <script type="text/javascript">
-        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-      </script>
 
-      <div class="main-container-inner">
-        <a class="menu-toggler" id="menu-toggler" href="#">
-          <span class="menu-text"></span>
-        </a>
-        <app-menu></app-menu>
-
-
-        <div class="main-content">
-          <app-bredcrumbs></app-bredcrumbs>
-          <div ui-view class="page-content"></div><!-- /.page-content -->
-        </div><!-- /.main-content -->
-
-        <!--设置-->
-        <app-settings></app-settings>
-      </div><!-- /.main-container-inner -->
-      <!--scroll-up-->
-      <app-scroll-up></app-scroll-up>
-    </div><!-- /.main-container -->
-    <!--内容区块-->
-
+    <section class="auto-height" ui-view></section>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -99,6 +71,7 @@
         <script src="scripts/service/order/order.js"></script>
         <!--services-->
         <!--constant-->
+        <script src="scripts/constants/appConstants.js"></script>
         <!--constant-->
         <!--routers-->
         <!--routers-->
@@ -112,8 +85,11 @@
         <!--thirdLib-->
         <!--thirdLib-->
         <!--controllers-->
+        <script src="scripts/controllers/user/userLoginCtrl.js"></script>
         <script src="scripts/controllers/order/grabOrderCtr.js"></script>
         <script src="scripts/controllers/order/grabOrderSuccessCtr.js"></script>
+        <script src="scripts/controllers/order/letTicket.js"></script>
+        <script src="scripts/controllers/order/grabOrderFinishCtr.js"></script>
         <!--controllers-->
 
         <!-- endbuild -->

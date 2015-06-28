@@ -61,8 +61,80 @@ angular.module('flightOpApp').factory('Order',['$http', '$q', function($http, $q
       });
     return defer.promise;
   };
+  /*获取待支付的订单*/
   orderService.grabSuccessOrder = function(){
     makeUrl('ticketpaying');
+    var defer = $q.defer();
+    var opInfo = {
+      op_id: 1,
+      tmc_id: 1
+    };
+    $http.post(
+      _finalUrl,
+      opInfo,
+      {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+      }).success(function (data) {
+        defer.resolve(data);
+      }).error(function (data, status) {
+        defer.reject(status);
+      });
+    return defer.promise;
+  };
+
+  /*获取待出票的订单*/
+  orderService.getAllLetTicketOrder = function(){
+    makeUrl('ticketprint');
+    var defer = $q.defer();
+    var opInfo = {
+      op_id: 1,
+      tmc_id: 1
+    };
+    $http.post(
+      _finalUrl,
+      opInfo,
+      {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+      }).success(function (data) {
+        defer.resolve(data);
+      }).error(function (data, status) {
+        defer.reject(status);
+      });
+    return defer.promise;
+  };
+
+  /**
+   *
+   * @param tid 订单ｉｄ
+   * @returns {*}　0 失败　１成功
+   */
+  orderService.letTicketOrder = function (tid) {
+    makeUrl('ticketprinting');
+    var defer = $q.defer();
+    var orderInfo = {
+      op_id: 1,
+      tmc_id: 1,
+      order_num: tid
+    };
+    $http.post(
+      _finalUrl,
+      orderInfo,
+      {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+      }).success(function (data) {
+        defer.resolve(data);
+      }).error(function (data, status) {
+        defer.reject(status);
+      });
+    return defer.promise;
+  };
+
+  /*已完成的订单*/
+  orderService.grabFinishOrder = function(){
+    makeUrl('ticketprinted');
     var defer = $q.defer();
     var opInfo = {
       op_id: 1,

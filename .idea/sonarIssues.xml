@@ -38,7 +38,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/assets/css/ace.css">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/assets/css/ace.min.css">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/login.html">
           <value>
             <set />
           </value>
@@ -48,12 +63,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/constants/appConstants.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/scripts/controllers/order/grabOrderCtr.js">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/controllers/order/grabOrderFinishCtr.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/scripts/controllers/order/grabOrderSuccessCtr.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/controllers/order/letTicket.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/controllers/user/userLoginCtrl.js">
           <value>
             <set />
           </value>
@@ -93,6 +128,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/scripts/service/user/user.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/styles/main.css">
           <value>
             <set />
@@ -118,12 +158,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/views/grabOrder/grabOrderFinish.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/views/grabOrder/grabOrderSuccess.html">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/views/grabOrder/letTicket.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/views/grabOrder/main.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/views/grabOrder/success.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/views/login.html">
           <value>
             <set />
           </value>
@@ -163,6 +223,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dist/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../myApp/.gitignore">
           <value>
             <set />
@@ -174,6 +239,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../myApp/www/js/directive/theTimer.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ng-showcase-master/Gruntfile.js">
           <value>
             <set />
           </value>

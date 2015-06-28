@@ -31,7 +31,7 @@
 
   <ul class="nav nav-list">
     <li ui-sref-active="active">
-      <a ui-sref="dashboard">
+      <a ui-sref="app.dashboard">
         <i class="icon-dashboard"></i>
         <span class="menu-text"> 控制台 </span>
       </a>
@@ -47,35 +47,35 @@
 
       <ul class="submenu">
         <li ui-sref-active="active">
-          <a ui-sref="grab.order">
+          <a ui-sref="app.order.grabOrder">
             <i class="icon-double-angle-right"></i>
             新订单
           </a>
         </li>
         <li ui-sref-active="active">
-          <a ui-sref="grab.success">
+          <a ui-sref="app.order.grabOrderSuccess">
             <i class="icon-double-angle-right"></i>
             待支付
           </a>
         </li>
         <li ui-sref-active="active">
-          <a href="#">
+          <a ui-sref="app.order.letTicket">
             <i class="icon-double-angle-right"></i>
             待出票
           </a>
         </li>
         <li ui-sref-active="active">
-          <a href="#">
+          <a ui-sref="app.order.grabOrderFinish">
             <i class="icon-double-angle-right"></i>
             已完成
           </a>
         </li>
-        <li ui-sref-active="active">
+<!--        <li ui-sref-active="active">
           <a href="#">
             <i class="icon-double-angle-right"></i>
             配送管理
           </a>
-        </li>
+        </li>-->
       </ul>
     </li>
 

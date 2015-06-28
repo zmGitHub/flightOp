@@ -14,3 +14,15 @@
 .overflow-icon-middle {
   top: 50%!important;
 }
+
+.auto-height {
+  height: 100%!important;
+}
+
+.login-bg {
+  height: 100%;
+  background-image: url('../images/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}

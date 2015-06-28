@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h1>
+    订单
+    <small>
+      <i class="icon-double-angle-right"></i>
+      待出票订单
+    </small>
+  </h1>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-3 pricing-box" ng-repeat="order in vm.orderFinishList | orderBy:'-create_time'">
+    <div class="widget-box">
+      <div class="widget-header header-color-blue">
+        <h5 class="bigger lighter">{{order.flight[0].dcity}} ⇀ {{order.flight[0].acity}}</h5>
+      </div>
+
+      <div class="widget-body">
+        <div class="widget-main text-center">
+          <p>{{order.flight[0].dtime | date:'HH:mm'}}({{order.flight[0].dport}})⇀{{order.flight[0].atime | date:'HH:mm'}}({{order.flight[0].aport}})</p>
+          <p>燃油/机建: ￥{{order.flight[0].adulttax}}</p>
+          <p>机票价格: ￥{{order.total_price}}</p>
+          <p>乘客人数: {{order.ticket_amount}}人</p>
+          <p>订单创建时间:{{order.create_time}}</p>
+          <p>联系方式: {{order.phone}}</p>
+          <hr>
+          <div class="price">
+            <small>总价</small>
+            <span class="text-danger">￥{{order.total_price}}</span>
+          </div>
+        </div>
+
+        <div>
+          <a href="#" class="btn btn-block btn-primary">
+            <i class="icon-trash bigger-110"></i>
+            <span>删 除</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

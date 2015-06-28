@@ -33,22 +33,81 @@
           <div class="widget-main no-padding">
             <div class="tab-content">
               <div class="panel-group accordion-style1 accordion-style2">
-                <div class="panel panel-default">
+                <div class="panel panel-default" ng-repeat="order in vm.orderList | orderBy:'create_time'">
                   <div class="panel-heading">
-                    <a ng-click="vm.collapsed = !vm.collapsed" ng-class="{collapsed: !vm.collapsed}" class="accordion-toggle" href>
-                      <i class="pull-right" ng-class="{true: 'icon-chevron-right', false: 'icon-chevron-down'}[!vm.collapsed]"></i>
-
-                      <i class="icon-user bigger-130"></i>
-                      &nbsp; High life accusamus terry richardson ad squid?
+                    <a ng-click="order.$collapsed = !order.$collapsed" ng-class="{collapsed: !order.$collapsed}" class="accordion-toggle" href>
+                      <span class="pull-left">
+                        <i class="icon-bookmark-empty bigger-130"></i>
+                        订单号: <strong>{{order.order_num}}</strong>
+                      </span>
+                      <span class="col-md-offset-2">下单时间: {{order.create_time}}</span>
+                      <span class="col-md-offset-3">联系方式: {{order.account}}</span>
+                      <i class="pull-right" ng-class="{true: 'icon-chevron-right', false: 'icon-chevron-down'}[!order.$collapsed]"></i>
                     </a>
                   </div>
 
-                  <div class="panel-collapse collapse" ng-class="{in: vm.collapsed}">
+                  <div class="panel-collapse collapse panel-success" ng-class="{in: order.$collapsed}">
+
                     <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                      <table id="sample-table-2" class="table table-striped">
+                        <thead>
+                        <tr>
+                          <th class="center">航空公司</th>
+                          <th class="hidden-480 center">
+                            <i class="icon-time bigger-110 hidden-480"></i>
+                            出发城市(时间)
+                          </th>
+                          <th class="center">
+                            <i class="icon-time bigger-110 hidden-480"></i>
+                            到达城市(时间)
+                          </th>
+                          <th class="center">机票价格</th>
+                          <th class="center">燃油费</th>
+                          <th class="center">机建费</th>
+                          <th class="center">乘客姓名</th>
+                          <th class="center">证件号码</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr ng-repeat="flight in order.flight">
+
+                          <td class="td-center">
+                            <p>{{flight.dcity}}航空{{flight.flight_num}}</p>
+                          </td>
+                          <td class="hidden-480 td-center">
+                            <p><strong>{{flight.dtime | date:'HH:mm'}}</strong></p>
+                            <p>{{flight.dcity}}</p>
+                          </td>
+                          <td class="td-center">
+                            <p><strong>{{flight.atime | date:'HH:mm'}}</strong></p>
+                            <p>{{flight.acity}}</p>
+                          </td>
+                          <td class="td-center">
+                            ￥{{flight.flight_price}}  ×{{order.passenger_amount}} 人
+                          </td>
+                          <td class="td-center">
+                            ￥{{flight.oilfee}}
+                          </td>
+                          <td class="td-center">
+                            ￥{{flight.adulttax}}
+                          </td>
+                          <td class="hidden-480 td-center">
+                            {{flight.passenger}}
+                          </td>
+                            <td class="td-center">
+                              <strong>{{flight.card_id}}</strong>
+                            </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                      <div class="text-danger pull-right">
+                        总金额: <strong>￥{{order.total_price}}</strong>
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>

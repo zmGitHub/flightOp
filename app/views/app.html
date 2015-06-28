@@ -1,0 +1,29 @@
+<!-- Add your site or application content here -->
+<!-- 顶端导航条 -->
+<app-header></app-header>
+<!-- 顶端导航条 -->
+<!--内容区块-->
+<div class="main-container" id="main-container">
+  <script type="text/javascript">
+    try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+  </script>
+
+  <div class="main-container-inner">
+    <a class="menu-toggler" id="menu-toggler" href="#">
+      <span class="menu-text"></span>
+    </a>
+    <app-menu></app-menu>
+
+
+    <div class="main-content">
+      <app-bredcrumbs></app-bredcrumbs>
+      <div ui-view class="page-content"></div><!-- /.page-content -->
+    </div><!-- /.main-content -->
+
+    <!--设置-->
+    <app-settings></app-settings>
+  </div><!-- /.main-container-inner -->
+  <!--scroll-up-->
+  <app-scroll-up></app-scroll-up>
+</div><!-- /.main-container -->
+<!--内容区块-->
