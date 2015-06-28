@@ -56,16 +56,15 @@
                   <thead>
                   <tr>
                     <th class="sorting_asc center">创建时间</th>
-                    <th class="center">航空公司</th>
-                    <th class="hidden-480 center">出发城市(时间)</th>
-
-                    <th class="center">
-                      <i class="icon-time bigger-110 hidden-480"></i>
-                      到达城市(时间)
-                    </th>
-                    <th class="center">机票价格</th>
-                    <th class="center">燃油费</th>
-                    <th class="center">机建费</th>
+                    <th class="center">订单编号</th>
+                    <th class="center">行程类型</th>
+                    <th class="center">去程航班信息</th>
+                    <th class="center">去程票面价格</th>
+                    <th class="center">去程实际价格</th>
+                    <th class="center">返程航班信息</th>
+                    <th class="center">返程票面价格</th>
+                    <th class="center">返程实际价格</th>
+                    <th class="center">机票张数</th>
                     <th class="center">总金额</th>
                     <th class="center">订单状态</th>
                     <th class="center">操 作</th>
@@ -78,25 +77,33 @@
                       <a href="#">{{order.create_time | date:'HH:mm'}}</a>
                     </td>
                     <td class="td-center">
-                      <p>{{order.flight[0].dtime | date: 'yyyy-mm-dd hh:mm'}}</p>
-                      <p>{{order.flight[0].dcity}}航空{{order.flight[0].flight_num}}</p>
-                    </td>
-                    <td class="hidden-480 td-center">
-                      <p><strong>{{order.flight[0].dtime | date:'HH:mm'}}</strong></p>
-                      <p>{{order.flight[0].dcity}}</p>
+                      {{order.order_num}}
                     </td>
                     <td class="td-center">
-                      <p><strong>{{order.flight[0].atime | date:'HH:mm'}}</strong></p>
-                      <p>{{order.flight[0].acity}}</p>
+                      {{order.trip_type | tripType}}
                     </td>
                     <td class="td-center">
-                      ￥{{order.flight[0].flight_price}}  ×{{order.passenger_amount}} 人
+                      <p>{{order.dpt_dtime | date: 'yyyy-mm-dd hh:mm'}}</p>
+                      <p>航班：{{order.dpt_flight_num}}</p>
                     </td>
                     <td class="td-center">
-                      ￥{{order.flight[0].oilfee}}
+                      ￥{{order.dpt_origin_price}}
                     </td>
                     <td class="td-center">
-                      ￥{{order.flight[0].adulttax}}
+                      ￥{{order.dpt_flight_price}}
+                    </td>
+                    <td class="td-center">
+                      <p>{{order.rtn_dtime | date: 'yyyy-mm-dd hh:mm'}}</p>
+                      <p>航班：{{order.rtn_flight_num}}</p>
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.rtn_origin_price}}
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.rtn_flight_price}}
+                    </td>
+                    <td class="td-center">
+                      ￥{{order.trip_type}} x {{order.passenger_amount}} 人
                     </td>
                     <td class="td-center">
                       <strong>￥{{order.total_price}}</strong>
