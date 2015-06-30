@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'ui.router'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when('', '/app/dashboard');
     $urlRouterProvider.when('/', '/app/dashboard');
     $urlRouterProvider.otherwise('/app/notFound');
@@ -26,7 +26,8 @@ angular
     $stateProvider.state('login', {
       url: '/login',
       templateUrl: 'views/login.html',
-      controller: 'userLoginCtrl'
+      controller: 'userLoginCtrl',
+      needLogin: false
     });
     $stateProvider.state('app', {
       url: '/app',
@@ -35,12 +36,14 @@ angular
     });
     $stateProvider.state('app.notFound',{
       url:'/notFound',
-      templateUrl:'views/404.html'
+      templateUrl:'views/404.html',
+      needLogin: true
     });
     /*控制面半年*/
     $stateProvider.state('app.dashboard', {
       url: '/dashboard',
-      templateUrl: 'views/dashboard/dashboard.html'
+      templateUrl: 'views/dashboard/dashboard.html',
+      needLogin: true
     });
 
     $stateProvider.state('app.order', {
@@ -56,7 +59,8 @@ angular
           return Order.getAllOrder();
         }
       },
-      controller: 'grabOrderCtr'
+      controller: 'grabOrderCtr',
+      needLogin: true
     });
     /*待支付*/
     $stateProvider.state('app.order.grabOrderSuccess', {
@@ -67,7 +71,8 @@ angular
           return Order.grabSuccessOrder();
         }
       },
-      controller: 'grabOrderSuccessCtr'
+      controller: 'grabOrderSuccessCtr',
+      needLogin: true
     });
     /*待出票*/
     $stateProvider.state('app.order.letTicket', {
@@ -78,7 +83,8 @@ angular
           return Order.getAllLetTicketOrder();
         }
       },
-      controller: 'letTicketCtr'
+      controller: 'letTicketCtr',
+      needLogin: true
     });
     /*已完成*/
     $stateProvider.state('app.order.grabOrderFinish', {
@@ -89,6 +95,26 @@ angular
           return Order.grabFinishOrder();
         }
       },
-      controller: 'grabOrderFinishCtr'
+      controller: 'grabOrderFinishCtr',
+      needLogin: true
     });
-  });
+  }])
+  .run(['$rootScope', 'SESSION', '$state', function($rootScope, SESSION, $state){
+    $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
+      var isLogin = SESSION.getItem('Token') || false;
+      var needAuthor = toState.needLogin || false;
+
+      if(needAuthor){
+        if(!isLogin){
+          event.preventDefault();
+          $state.go('login');
+        }
+      }else {
+        if(isLogin){
+          event.preventDefault();
+          $state.go('app.dashboard');
+        }
+      }
+
+    })
+  }]);

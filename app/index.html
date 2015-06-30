@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="flightOpApp">
+  <body ng-app="flightOpApp" ng-controller="ApplicationController">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -71,6 +71,8 @@
         <!--filter-->
         <!--services-->
         <script src="scripts/service/order/order.js"></script>
+        <script src="scripts/service/user/user.js"></script>
+        <script src="scripts/service/session/localStorage.js"></script>
         <!--services-->
         <!--constant-->
         <script src="scripts/constants/appConstants.js"></script>
@@ -87,6 +89,7 @@
         <!--thirdLib-->
         <!--thirdLib-->
         <!--controllers-->
+        <script src="scripts/controllers/ApplicationCtr.js"></script>
         <script src="scripts/controllers/user/userLoginCtrl.js"></script>
         <script src="scripts/controllers/order/grabOrderCtr.js"></script>
         <script src="scripts/controllers/order/grabOrderSuccessCtr.js"></script>
